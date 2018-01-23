@@ -35,7 +35,9 @@ function samsungMaple () {
   new window.Common.API.Widget().sendReturnEvent()
 }
 
-function samsungTizen () {}
+function samsungTizen () {
+  window.tizen.application.getCurrentApplication().exit()
+}
 
 function tivoCore () {
   window.tivo.core.exit()
