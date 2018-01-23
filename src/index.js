@@ -58,7 +58,7 @@ var modifierMap = {
 function getStrategyForConfig (config) {
   config = config || {}
 
-  const modifier = (config.modifiers || []).reduce(function (m, c) {
+  var modifier = (config.modifiers || []).reduce(function (m, c) {
     return c.indexOf('exit') > -1 ? c : m
   }, '')
 
@@ -66,16 +66,16 @@ function getStrategyForConfig (config) {
 }
 
 export default {
-  getStrategyForConfig,
-  closeWindow,
-  openCloseWindow,
-  destroyApplication,
-  history,
-  netcast,
-  sagemcom,
-  samsungMaple,
-  samsungTizen,
-  tivo,
-  netcastBroadcast,
-  samsungMapleBroadcast
+  getStrategyForConfig: getStrategyForConfig,
+  closeWindow: closeWindow,
+  openCloseWindow: openCloseWindow,
+  destroyApplication: destroyApplication,
+  history: history,
+  netcast: netcast,
+  sagemcom: sagemcom,
+  samsungMaple: samsungMaple,
+  samsungTizen: samsungTizen,
+  tivo: tivo,
+  netcastBroadcast: netcastBroadcast,
+  samsungMapleBroadcast: samsungMapleBroadcast
 }
