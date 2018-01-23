@@ -32,14 +32,22 @@ function sagemcom () {
 }
 
 function samsungMaple () {
-  var widget = window.Common.API.Widget()
-  widget.sendReturnEvent()
+  new window.Common.API.Widget().sendReturnEvent()
 }
 
 function samsungTizen () {}
-function tivo () {}
-function netcastBroadcast () {}
-function samsungMapleBroadcast () {}
+
+function tivoCore () {
+  window.tivo.core.exit()
+}
+
+function netcastBroadcast () {
+  window.NetCastExit()
+}
+
+function samsungMapleBroadcast () {
+  new window.Common.API.Widget().sendReturnEvent()
+}
 
 var modifierMap = {
   'antie/devices/exit/closewindow': closeWindow,
@@ -50,7 +58,7 @@ var modifierMap = {
   'antie/devices/exit/sagemcom': sagemcom,
   'antie/devices/exit/samsung_maple': samsungMaple,
   'antie/devices/exit/samsung_tizen': samsungTizen,
-  'antie/devices/exit/tivo': tivo,
+  'antie/devices/exit/tivo': tivoCore,
   'antie/devices/exit/broadcast/netcast': netcastBroadcast,
   'antie/devices/exit/broadcast/samsung_maple': samsungMapleBroadcast
 }
@@ -75,7 +83,7 @@ export default {
   sagemcom: sagemcom,
   samsungMaple: samsungMaple,
   samsungTizen: samsungTizen,
-  tivo: tivo,
+  tivoCore: tivoCore,
   netcastBroadcast: netcastBroadcast,
   samsungMapleBroadcast: samsungMapleBroadcast
 }
