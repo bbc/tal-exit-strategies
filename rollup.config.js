@@ -3,6 +3,6 @@ export default {
   output: {
     file: 'lib/tal-exit-strategies.js',
     format: 'umd',
-    name: 'TALExit'
+    name: 'TALExitStrategies'
   }
 }
