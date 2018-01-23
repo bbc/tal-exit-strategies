@@ -84,11 +84,11 @@ describe('getStrategyForConfig', () => {
     expect(strategy).toEqual(Exit.samsungTizen)
   })
 
-  it('should return the `tivo` strategy as expected', () => {
+  it('should return the `tivoCore` strategy as expected', () => {
     const config = buildConfig('antie/devices/exit/tivo')
     const strategy = Exit.getStrategyForConfig(config)
 
-    expect(strategy).toEqual(Exit.tivo)
+    expect(strategy).toEqual(Exit.tivoCore)
   })
 
   it('should return the `netcastBroadcast` strategy as expected', () => {

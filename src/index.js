@@ -24,7 +24,10 @@ function netcast () {}
 function sagemcom () {}
 function samsungMaple () {}
 function samsungTizen () {}
-function tivo () {}
+function tivoCore () {
+  /* global tivo */
+  tivo.core.exit()
+}
 function netcastBroadcast () {
   window.NetCastExit()
 }
@@ -42,7 +45,7 @@ var modifierMap = {
   'antie/devices/exit/sagemcom': sagemcom,
   'antie/devices/exit/samsung_maple': samsungMaple,
   'antie/devices/exit/samsung_tizen': samsungTizen,
-  'antie/devices/exit/tivo': tivo,
+  'antie/devices/exit/tivo': tivoCore,
   'antie/devices/exit/broadcast/netcast': netcastBroadcast,
   'antie/devices/exit/broadcast/samsung_maple': samsungMapleBroadcast
 }
@@ -67,7 +70,7 @@ export default {
   sagemcom,
   samsungMaple,
   samsungTizen,
-  tivo,
+  tivoCore,
   netcastBroadcast,
   samsungMapleBroadcast
 }
