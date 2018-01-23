@@ -27,7 +27,10 @@ function netcast () {
   window.NetCastBack()
 }
 
-function sagemcom () {}
+function sagemcom () {
+  window.parent.postMessage('JS_EVENT_QUIT_THIRD_PARTY', '*')
+}
+
 function samsungMaple () {}
 function samsungTizen () {}
 function tivo () {}
