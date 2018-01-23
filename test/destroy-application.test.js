@@ -3,7 +3,7 @@
 const { destroyApplication } = require('../lib/tal-exit-strategies')
 
 describe('destroyApplication', () => {
-  it('should call oipf `destroyApplication`', () => {
+  it('should call oipf `destroyApplication` as expected', () => {
     const spy = jest.fn()
 
     window.oipfObjectFactory = {
@@ -20,7 +20,7 @@ describe('destroyApplication', () => {
     expect(spy).toHaveBeenCalled()
   })
 
-  it('should not oipf `destroyApplication`', () => {
+  it('should not call oipf `destroyApplication` as expected', () => {
     const spy = jest.fn()
 
     window.oipfObjectFactory = {
