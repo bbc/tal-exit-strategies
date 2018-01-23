@@ -8,13 +8,16 @@
     "jest": "^22.1.4",
     "rimraf": "^2.6.2",
     "rollup": "^0.55.0",
-    "standard": "^10.0.3"
+    "standard": "^10.0.3",
+    "uglify-js": "^3.3.8"
   },
   "scripts": {
     "lint": "standard src/*.js",
     "prebuild": "rimraf lib",
     "build": "rollup -c",
+    "postbuild": "npm run minify",
     "pretest": "npm run lint && npm run build",
-    "test": "jest"
+    "test": "jest",
+    "minify": "uglifyjs lib/tal-exit-strategies.js --compress --mangle --output lib/tal-exit-strategies.min.js"
   }
 }

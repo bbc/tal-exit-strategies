@@ -1,8 +1,8 @@
 /* eslint-env jest */
 
-const { samsungMapleBroadcast } = require('../lib/tal-exit-strategies')
+const { samsungMaple } = require('../lib/tal-exit-strategies')
 
-test('samsungMapleBroadcast', () => {
+test('samsungMaple', () => {
   const sendReturnEvent = jest.fn()
 
   window.Common = {
@@ -15,7 +15,7 @@ test('samsungMapleBroadcast', () => {
     }
   }
 
-  samsungMapleBroadcast()
+  samsungMaple()
 
   expect(sendReturnEvent).toHaveBeenCalled()
 })
