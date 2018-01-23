@@ -19,7 +19,10 @@ function destroyApplication () {
   } catch (e) {}
 }
 
-function history () {}
+function history () {
+  window.history.go(-(window.history.length - 1))
+}
+
 function netcast () {}
 function sagemcom () {}
 function samsungMaple () {}
