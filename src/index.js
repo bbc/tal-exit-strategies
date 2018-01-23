@@ -31,7 +31,11 @@ function sagemcom () {
   window.parent.postMessage('JS_EVENT_QUIT_THIRD_PARTY', '*')
 }
 
-function samsungMaple () {}
+function samsungMaple () {
+  var widget = window.Common.API.Widget()
+  widget.sendReturnEvent()
+}
+
 function samsungTizen () {}
 function tivo () {}
 function netcastBroadcast () {}
