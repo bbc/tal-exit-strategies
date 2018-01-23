@@ -7,7 +7,17 @@ function openCloseWindow () {
   window.close()
 }
 
-function destroyApplication () {}
+function destroyApplication () {
+  try {
+    var factory = window.oipfObjectFactory
+    if (!factory.isObjectSupported('application/oipfApplicationManager')) return
+    var app = factory.createApplicationManagerObject()
+    var owner = app.getOwnerApplication(window.document)
+
+    owner.destroyApplication()
+  } catch (e) {}
+}
+
 function history () {}
 function netcast () {}
 function sagemcom () {}
