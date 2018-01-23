@@ -23,7 +23,10 @@ function history () {
   window.history.go(-(window.history.length - 1))
 }
 
-function netcast () {}
+function netcast () {
+  window.NetCastBack()
+}
+
 function sagemcom () {}
 function samsungMaple () {}
 function samsungTizen () {}
