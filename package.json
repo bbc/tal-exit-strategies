@@ -1,7 +1,7 @@
 {
   "name": "tal-exit-strategies",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "lib/tal-exit-strategies.js",
   "author": "<stuart.williams@bbc.co.uk>",
   "license": "MIT",
   "devDependencies": {
