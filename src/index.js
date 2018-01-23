@@ -25,7 +25,9 @@ function sagemcom () {}
 function samsungMaple () {}
 function samsungTizen () {}
 function tivo () {}
-function netcastBroadcast () {}
+function netcastBroadcast () {
+  window.NetCastExit()
+}
 function samsungMapleBroadcast () {
   /* global Common */
   new Common.API.Widget().sendReturnEvent()
