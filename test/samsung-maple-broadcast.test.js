@@ -2,7 +2,7 @@
 
 const { samsungMapleBroadcast } = require('../lib/tal-exit-strategies')
 
-test('closeWindow', () => {
+test('samsungMapleBroadcast', () => {
   const sendReturnEvent = jest.fn()
   window.Common = {
     API: {

@@ -2,7 +2,7 @@
 
 const { netcastBroadcast } = require('../lib/tal-exit-strategies')
 
-test('closeWindow', () => {
+test('netcastBroadcast', () => {
   window.NetCastExit = jest.fn()
 
   netcastBroadcast()
