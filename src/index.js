@@ -2,7 +2,11 @@ function closeWindow () {
   window.close()
 }
 
-function openCloseWindow () {}
+function openCloseWindow () {
+  window.open('', '_self')
+  window.close()
+}
+
 function destroyApplication () {}
 function history () {}
 function netcast () {}
