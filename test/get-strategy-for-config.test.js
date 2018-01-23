@@ -1,6 +1,5 @@
-/* eslint-env mocha, chai */
+/* eslint-env jest */
 
-const { expect } = require('chai')
 const Exit = require('../lib/tal-exit-strategies')
 
 const deviceConfig = {
@@ -28,93 +27,93 @@ const buildConfig = (modifier) => {
   return { ...deviceConfig, modifiers }
 }
 
-describe('getStrategyForConfig', function () {
-  it('should return the `closeWindow` strategy as expected', function () {
+describe('getStrategyForConfig', () => {
+  it('should return the `closeWindow` strategy as expected', () => {
     const config = buildConfig('antie/devices/exit/closewindow')
     const strategy = Exit.getStrategyForConfig(config)
 
-    expect(strategy).to.equal(Exit.closeWindow)
+    expect(strategy).toEqual(Exit.closeWindow)
   })
 
-  it('should return the `openCloseWindow` strategy as expected', function () {
+  it('should return the `openCloseWindow` strategy as expected', () => {
     const config = buildConfig('antie/devices/exit/openclosewindow')
     const strategy = Exit.getStrategyForConfig(config)
 
-    expect(strategy).to.equal(Exit.openCloseWindow)
+    expect(strategy).toEqual(Exit.openCloseWindow)
   })
 
-  it('should return the `destroyApplication` strategy as expected', function () {
+  it('should return the `destroyApplication` strategy as expected', () => {
     const config = buildConfig('antie/devices/exit/destroyapplication')
     const strategy = Exit.getStrategyForConfig(config)
 
-    expect(strategy).to.equal(Exit.destroyApplication)
+    expect(strategy).toEqual(Exit.destroyApplication)
   })
 
-  it('should return the `history` strategy as expected', function () {
+  it('should return the `history` strategy as expected', () => {
     const config = buildConfig('antie/devices/exit/history')
     const strategy = Exit.getStrategyForConfig(config)
 
-    expect(strategy).to.equal(Exit.history)
+    expect(strategy).toEqual(Exit.history)
   })
 
-  it('should return the `netcast` strategy as expected', function () {
+  it('should return the `netcast` strategy as expected', () => {
     const config = buildConfig('antie/devices/exit/netcast')
     const strategy = Exit.getStrategyForConfig(config)
 
-    expect(strategy).to.equal(Exit.netcast)
+    expect(strategy).toEqual(Exit.netcast)
   })
 
-  it('should return the `sagemcom` strategy as expected', function () {
+  it('should return the `sagemcom` strategy as expected', () => {
     const config = buildConfig('antie/devices/exit/sagemcom')
     const strategy = Exit.getStrategyForConfig(config)
 
-    expect(strategy).to.equal(Exit.sagemcom)
+    expect(strategy).toEqual(Exit.sagemcom)
   })
 
-  it('should return the `samsungMaple` strategy as expected', function () {
+  it('should return the `samsungMaple` strategy as expected', () => {
     const config = buildConfig('antie/devices/exit/samsung_maple')
     const strategy = Exit.getStrategyForConfig(config)
 
-    expect(strategy).to.equal(Exit.samsungMaple)
+    expect(strategy).toEqual(Exit.samsungMaple)
   })
 
-  it('should return the `samsungTizen` strategy as expected', function () {
+  it('should return the `samsungTizen` strategy as expected', () => {
     const config = buildConfig('antie/devices/exit/samsung_tizen')
     const strategy = Exit.getStrategyForConfig(config)
 
-    expect(strategy).to.equal(Exit.samsungTizen)
+    expect(strategy).toEqual(Exit.samsungTizen)
   })
 
-  it('should return the `tivo` strategy as expected', function () {
+  it('should return the `tivo` strategy as expected', () => {
     const config = buildConfig('antie/devices/exit/tivo')
     const strategy = Exit.getStrategyForConfig(config)
 
-    expect(strategy).to.equal(Exit.tivo)
+    expect(strategy).toEqual(Exit.tivo)
   })
 
-  it('should return the `netcastBroadcast` strategy as expected', function () {
+  it('should return the `netcastBroadcast` strategy as expected', () => {
     const config = buildConfig('antie/devices/exit/broadcast/netcast')
     const strategy = Exit.getStrategyForConfig(config)
 
-    expect(strategy).to.equal(Exit.netcastBroadcast)
+    expect(strategy).toEqual(Exit.netcastBroadcast)
   })
 
-  it('should return the `samsungMapleBroadcast` strategy as expected', function () {
+  it('should return the `samsungMapleBroadcast` strategy as expected', () => {
     const config = buildConfig('antie/devices/exit/broadcast/samsung_maple')
     const strategy = Exit.getStrategyForConfig(config)
 
-    expect(strategy).to.equal(Exit.samsungMapleBroadcast)
+    expect(strategy).toEqual(Exit.samsungMapleBroadcast)
   })
 
-  it('should return `undefined` when a modifier cannot be matched', function () {
+  it('should return `undefined` when a modifier cannot be matched', () => {
     const strategy = Exit.getStrategyForConfig({ modifiers: [] })
 
-    expect(strategy).to.equal(undefined)
+    expect(strategy).toEqual(undefined)
   })
 
-  it('should return `undefined` when no config is provided', function () {
+  it('should return `undefined` when no config is provided', () => {
     const strategy = Exit.getStrategyForConfig()
 
-    expect(strategy).to.equal(undefined)
+    expect(strategy).toEqual(undefined)
   })
 })

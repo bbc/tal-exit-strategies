@@ -1,4 +1,7 @@
-function closeWindow () {}
+function closeWindow () {
+  window.close()
+}
+
 function openCloseWindow () {}
 function destroyApplication () {}
 function history () {}
