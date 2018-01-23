@@ -3,13 +3,13 @@
 const { samsungMapleBroadcast } = require('../lib/tal-exit-strategies')
 
 test('samsungMapleBroadcast', () => {
-  const sendReturnEvent = jest.fn()
+  const sendExitEvent = jest.fn()
 
   window.Common = {
     API: {
       Widget: function () {
         return {
-          sendReturnEvent
+          sendExitEvent
         }
       }
     }
@@ -17,5 +17,5 @@ test('samsungMapleBroadcast', () => {
 
   samsungMapleBroadcast()
 
-  expect(sendReturnEvent).toHaveBeenCalled()
+  expect(sendExitEvent).toHaveBeenCalled()
 })
