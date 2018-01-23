@@ -10,11 +10,12 @@ function openCloseWindow () {
 function destroyApplication () {
   try {
     var factory = window.oipfObjectFactory
-    if (!factory.isObjectSupported('application/oipfApplicationManager')) return
-    var app = factory.createApplicationManagerObject()
-    var owner = app.getOwnerApplication(window.document)
-
-    owner.destroyApplication()
+    if (factory.isObjectSupported('application/oipfApplicationManager')) {
+      factory
+        .createApplicationManagerObject()
+        .getOwnerApplication(window.document)
+        .destroyApplication()
+    }
   } catch (e) {}
 }
 
