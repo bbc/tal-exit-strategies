@@ -2,29 +2,10 @@
 
 const Exit = require('../lib/tal-exit-strategies')
 
-const modifiers = [
-  'antie/devices/anim/styletopleft',
-  'antie/devices/mediaplayer/html5',
-  'antie/devices/mediaplayer/live/seekable',
-  'antie/devices/data/nativejson',
-  'antie/devices/logging/default',
-  'antie/devices/logging/alert',
-  'antie/devices/logging/xhr',
-  'antie/devices/logging/jstestdriver',
-  'antie/devices/storage/cookie',
-  'antie/devices/parentalguidance/appdefaultpghandler'
-]
-
-const buildConfig = (modifier) => {
-  const max = modifiers.length - 1
-  const index = Math.floor(Math.random() * max)
-  const modifiersClone = [ ...modifiers ]
-
-  modifiersClone.splice(index, 0, modifier)
-
+const buildConfig = (modifiers = []) => {
   return {
     modules: {
-      modifiers: modifiersClone
+      modifiers: [].concat(modifiers)
     }
   }
 }
@@ -105,5 +86,39 @@ describe('getStrategyForConfig', () => {
     const strategy = Exit.getStrategyForConfig(config)
 
     expect(strategy).toEqual(Exit.samsungMapleBroadcast)
+  })
+
+  it('should return the expected strategy when the device config contains multiple exit modifiers', () => {
+    const config = buildConfig([
+      'antie/devices/exit/samsung_maple',
+      'antie/devices/exit/broadcast/samsung_maple'
+    ])
+    const strategy = Exit.getStrategyForConfig(config)
+
+    expect(strategy).toEqual(Exit.samsungMaple)
+  })
+
+  it('should return the expected strategy when the device config contains multiple exit modifiers and the exitToBroadcast option is specified', () => {
+    const config = buildConfig([
+      'antie/devices/exit/samsung_maple',
+      'antie/devices/exit/broadcast/samsung_maple'
+    ])
+    const strategy = Exit.getStrategyForConfig(config, { exitToBroadcast: true })
+
+    expect(strategy).toEqual(Exit.samsungMapleBroadcast)
+  })
+
+  it('should return the expected strategy when the device config contains a non broadcast modifier and the exitToBroadcast option is specified', () => {
+    const config = buildConfig('antie/devices/exit/samsung_maple')
+    const strategy = Exit.getStrategyForConfig(config, { exitToBroadcast: true })
+
+    expect(strategy).toEqual(Exit.samsungMaple)
+  })
+
+  it('should return `undefined` if the device config does not contain an exit modifier', () => {
+    const config = buildConfig()
+    const strategy = Exit.getStrategyForConfig(config)
+
+    expect(strategy).toEqual(undefined)
   })
 })
