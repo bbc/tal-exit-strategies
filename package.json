@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "lib/tal-exit-strategies.js",
   "author": "<stuart.williams@bbc.co.uk>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "devDependencies": {
     "jest": "^22.1.4",
     "rimraf": "^2.6.2",
