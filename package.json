@@ -1,6 +1,6 @@
 {
   "name": "tal-exit-strategies",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "lib/tal-exit-strategies.js",
   "author": "<stuart.williams@bbc.co.uk>",
   "license": "Apache-2.0",
