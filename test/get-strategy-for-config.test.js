@@ -2,29 +2,31 @@
 
 const Exit = require('../lib/tal-exit-strategies')
 
-const deviceConfig = {
-  modifiers: [
-    'antie/devices/anim/styletopleft',
-    'antie/devices/mediaplayer/html5',
-    'antie/devices/mediaplayer/live/seekable',
-    'antie/devices/data/nativejson',
-    'antie/devices/logging/default',
-    'antie/devices/logging/alert',
-    'antie/devices/logging/xhr',
-    'antie/devices/logging/jstestdriver',
-    'antie/devices/storage/cookie',
-    'antie/devices/parentalguidance/appdefaultpghandler'
-  ]
-}
+const modifiers = [
+  'antie/devices/anim/styletopleft',
+  'antie/devices/mediaplayer/html5',
+  'antie/devices/mediaplayer/live/seekable',
+  'antie/devices/data/nativejson',
+  'antie/devices/logging/default',
+  'antie/devices/logging/alert',
+  'antie/devices/logging/xhr',
+  'antie/devices/logging/jstestdriver',
+  'antie/devices/storage/cookie',
+  'antie/devices/parentalguidance/appdefaultpghandler'
+]
 
 const buildConfig = (modifier) => {
-  const max = deviceConfig.modifiers.length - 1
+  const max = modifiers.length - 1
   const index = Math.floor(Math.random() * max)
-  const modifiers = [ ...deviceConfig.modifiers ]
+  const modifiersClone = [ ...modifiers ]
 
-  modifiers.splice(index, 0, modifier)
+  modifiersClone.splice(index, 0, modifier)
 
-  return { ...deviceConfig, modifiers }
+  return {
+    modules: {
+      modifiers: modifiersClone
+    }
+  }
 }
 
 describe('getStrategyForConfig', () => {
@@ -103,17 +105,5 @@ describe('getStrategyForConfig', () => {
     const strategy = Exit.getStrategyForConfig(config)
 
     expect(strategy).toEqual(Exit.samsungMapleBroadcast)
-  })
-
-  it('should return `undefined` when a modifier cannot be matched', () => {
-    const strategy = Exit.getStrategyForConfig({ modifiers: [] })
-
-    expect(strategy).toEqual(undefined)
-  })
-
-  it('should return `undefined` when no config is provided', () => {
-    const strategy = Exit.getStrategyForConfig()
-
-    expect(strategy).toEqual(undefined)
   })
 })
