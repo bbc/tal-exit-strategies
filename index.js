@@ -1,60 +1,54 @@
-(function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-	typeof define === 'function' && define.amd ? define(factory) :
-	(global.TALExitStrategies = factory());
-}(this, (function () { 'use strict';
-
 function closeWindow () {
-  window.close();
+  window.close()
 }
 
 function openCloseWindow () {
-  window.open('', '_self');
-  window.close();
+  window.open('', '_self')
+  window.close()
 }
 
 function destroyApplication () {
   try {
-    var factory = window.oipfObjectFactory;
+    var factory = window.oipfObjectFactory
     if (factory.isObjectSupported('application/oipfApplicationManager')) {
       factory
         .createApplicationManagerObject()
         .getOwnerApplication(window.document)
-        .destroyApplication();
+        .destroyApplication()
     }
   } catch (e) {}
 }
 
 function history () {
-  window.history.go(-(window.history.length - 1));
+  window.history.go(-(window.history.length - 1))
 }
 
 function netcast () {
-  window.NetCastBack();
+  window.NetCastBack()
 }
 
 function sagemcom () {
-  window.parent.postMessage('JS_EVENT_QUIT_THIRD_PARTY', '*');
+  window.parent.postMessage('JS_EVENT_QUIT_THIRD_PARTY', '*')
 }
 
 function samsungMaple () {
-  new window.Common.API.Widget().sendReturnEvent();
+  new window.Common.API.Widget().sendReturnEvent()
 }
 
 function samsungTizen () {
-  window.tizen.application.getCurrentApplication().exit();
+  window.tizen.application.getCurrentApplication().exit()
 }
 
 function tivoCore () {
-  window.tivo.core.exit();
+  window.tivo.core.exit()
 }
 
 function netcastBroadcast () {
-  window.NetCastExit();
+  window.NetCastExit()
 }
 
 function samsungMapleBroadcast () {
-  new window.Common.API.Widget().sendExitEvent();
+  new window.Common.API.Widget().sendExitEvent()
 }
 
 var MAP = {
@@ -69,24 +63,24 @@ var MAP = {
   'antie/devices/exit/tivo': tivoCore,
   'antie/devices/exit/broadcast/netcast': netcastBroadcast,
   'antie/devices/exit/broadcast/samsung_maple': samsungMapleBroadcast
-};
+}
 
 function getStrategyForConfig (deviceConfig, options) {
-  options = options || {};
+  options = options || {}
 
-  var modifiers = deviceConfig.modules.modifiers;
-  var exitModifiers = modifiers.filter(function (m) { return m.match(/exit\//) });
+  var modifiers = deviceConfig.modules.modifiers
+  var exitModifiers = modifiers.filter(function (m) { return m.match(/exit\//) })
 
   if (!exitModifiers.length) return
   if (exitModifiers.length === 1) return MAP[exitModifiers[0]]
 
-  var matcher = options.exitToBroadcast ? /exit\/broadcast/ : /exit\/(?!broadcast)/;
-  var modifier = exitModifiers.filter(function (m) { return m.match(matcher) })[0];
+  var matcher = options.exitToBroadcast ? /exit\/broadcast/ : /exit\/(?!broadcast)/
+  var modifier = exitModifiers.filter(function (m) { return m.match(matcher) })[0]
 
   return MAP[modifier || exitModifiers[0]]
 }
 
-var index = {
+module.exports = {
   getStrategyForConfig: getStrategyForConfig,
   closeWindow: closeWindow,
   openCloseWindow: openCloseWindow,
@@ -100,7 +94,3 @@ var index = {
   netcastBroadcast: netcastBroadcast,
   samsungMapleBroadcast: samsungMapleBroadcast
 }
-
-return index;
-
-})));

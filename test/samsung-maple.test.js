@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-const { samsungMaple } = require('../lib/tal-exit-strategies')
+const { samsungMaple } = require('../')
 
 test('samsungMaple', () => {
   const sendReturnEvent = jest.fn()

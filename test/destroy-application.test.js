@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-const { destroyApplication } = require('../lib/tal-exit-strategies')
+const { destroyApplication } = require('../')
 
 describe('destroyApplication', () => {
   it('should call oipf `destroyApplication` as expected', () => {

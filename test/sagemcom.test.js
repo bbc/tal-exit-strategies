@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-const { sagemcom } = require('../lib/tal-exit-strategies')
+const { sagemcom } = require('../')
 
 test('sagemcom', () => {
   Object.defineProperty(window.parent, 'postMessage', {

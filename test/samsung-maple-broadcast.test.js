@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-const { samsungMapleBroadcast } = require('../lib/tal-exit-strategies')
+const { samsungMapleBroadcast } = require('../')
 
 test('samsungMapleBroadcast', () => {
   const sendExitEvent = jest.fn()

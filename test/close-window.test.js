@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-const { closeWindow } = require('../lib/tal-exit-strategies')
+const { closeWindow } = require('../')
 
 test('closeWindow', () => {
   window.close = jest.fn()

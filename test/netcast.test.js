@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-const { netcast } = require('../lib/tal-exit-strategies')
+const { netcast } = require('../')
 
 test('netcast', () => {
   window.NetCastBack = jest.fn()

@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-const { history } = require('../lib/tal-exit-strategies')
+const { history } = require('../')
 
 test('history', () => {
   Object.defineProperties(window.history, {

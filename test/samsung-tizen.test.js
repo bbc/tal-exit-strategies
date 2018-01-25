@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-const { samsungTizen } = require('../lib/tal-exit-strategies')
+const { samsungTizen } = require('../')
 
 test('samsungTizen', () => {
   const exit = jest.fn()

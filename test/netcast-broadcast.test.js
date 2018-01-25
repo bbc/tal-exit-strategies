@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-const { netcastBroadcast } = require('../lib/tal-exit-strategies')
+const { netcastBroadcast } = require('../')
 
 test('netcastBroadcast', () => {
   window.NetCastExit = jest.fn()

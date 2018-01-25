@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-const Exit = require('../lib/tal-exit-strategies')
+const Exit = require('../')
 
 const buildConfig = (modifiers = []) => {
   return {
